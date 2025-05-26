@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advaith ❤️ Koche</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #fbd3e9, #bb377d);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+    }
+
+    .heart {
+      font-size: 4rem;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .image-box {
+      margin: 20px;
+    }
+
+    .image-box img {
+      width: 300px;
+      height: auto;
+      border: 4px solid white;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+
+    .slide {
+      width: 300px;
+      height: auto;
+      border: 4px solid white;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+    }
+    .image-box {
+      position: relative;
+      width: 300px;
+      height: 650px;
+    }
+
+
+    button {
+      background-color: white;
+      color: #bb377d;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .message-box {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      font-size: 1.2rem;
+    }
+
+    .fireflies {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .firefly {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      width: 4px;
+      height: 4px;
+      animation: fly 10s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    @keyframes fly {
+      0% { transform: translate(0, 0); opacity: 0.3; }
+      50% { transform: translate(100px, -100px); opacity: 1; }
+      100% { transform: translate(-50px, 50px); opacity: 0.5; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="fireflies">
+    <!-- Random fireflies -->
+    <div class="firefly" style="top:10%; left:20%;"></div>
+    <div class="firefly" style="top:30%; left:70%;"></div>
+    <div class="firefly" style="top:50%; left:10%;"></div>
+    <div class="firefly" style="top:80%; left:50%;"></div>
+    <div class="firefly" style="top:60%; left:80%;"></div>
+  </div>
+
+  <h1>Its been 1 yr!! :(</h1>
+  <div class="heart">❤️</div>
+  <p>Advaith & Arbisha — still strong, still in love 🥹</p>
+  <div class="image-box" id="slideshow">
+    <img src="pic1.jpg" class="slide" style="display:block">
+    <img src="pic2.jpg" class="slide" style="display:block;">
+    <img src="pic3.jpg" class="slide" style="display:block">
+    <img src="pic4.jpg" class="slide" style="display:block">
+    <img src="pic5.jpg" class="slide" style="display:block">
+  </div>
+</div>
+
+  <button onclick="showMessage()">Click for a Surprise 💌</button>
+  <button onclick="playMusic()">Play Music 🎶</button>
+
+  <div class="message-box" id="secretMessage">
+    Koche its been 1 year since we met each other...we had faced many problems from both sides we faced it and will facing many in future too..this day is my one of the best day in my lyf as we had many emotions and moments togther for a last tym before being in a long distance relationship...i always loved you..I love you a lot koche...Sorry for everything i done..I miss those kisses and hugs i want those again...promise me when we meet next time you will be giving me those wt i want hugs,kisses,holding hands etc you know that too..
+    Hoping to see yoouu soon koche! I love you my cutie pookie baby!<3
+  </div>
+
+<audio id="bg-music" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+  <script>
+    function showMessage() {
+      document.getElementById("secretMessage").style.display = "block";
+    }
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showNextSlide() {
+      slides[currentSlide].style.display = "none";
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].style.display = "block";
+    }
+    setInterval(showNextSlide, 3000); // Change every 3 seconds
+    function playMusic() {const music = document.getElementById("bg-music");
+    music.play().then(() => {
+      console.log("Music started");
+    }).catch((e) => {
+      console.log("User interaction required:", e);
+    });
+  }
+</script>
+</body>
+</html>
